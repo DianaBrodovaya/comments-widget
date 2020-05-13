@@ -1,0 +1,84 @@
+$main-background: #dce2e8;
+$button-background: #4a76a8;
+$comment-background: #fff;
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font: 18px Roboto;
+  background-color: $main-background;
+}
+
+h1 {
+  font-size: 40px;
+  text-align: center;
+}
+
+.main-wrapper {
+  max-width: 800px;
+  margin: 0 auto;
+  padding-bottom: 100px;
+}
+
+p {
+  margin: 0 0 10px 0
+}
+
+input, textarea {
+  padding: 5px;
+  width: 100%;
+  margin-bottom: 10px;
+  font: 18px Roboto;
+}
+
+textarea {
+  resize: none;
+  min-height: 100px;
+}
+
+.comments-list {
+  padding-left: 0
+}
+
+.comment {
+  list-style: none;
+  margin-bottom: 30px;
+  padding: 10px;
+  background: $comment-background;
+}
+
+.comment-author {
+  font-weight: bold;
+  padding-right: 50px
+}
+
+.comment-date {
+  font-size: 14px
+}
+
+.add-comment {
+  font: 18px Roboto;
+  padding: 10px 15px;
+  background-color: $button-background;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+  float: right
+}
+
+.comment-wrapper {
+  position: relative
+}
+
+.delete-comment {
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  width: 17px;
+  height: 17px;
+  border: none;
+  background: url("images/cross.svg") center center no-repeat;
+  cursor: pointer
+}
