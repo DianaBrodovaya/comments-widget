@@ -3,6 +3,7 @@ import CommentsList from "./comments-list";
 import CommentAddForm from "./comment-add-form";
 
 export default class App extends Component {
+    defaultCommentAuthor = 'Неизвестный комментатор';
     newId = 100;
     state = {
         commentsData: [
@@ -46,22 +47,27 @@ export default class App extends Component {
     createComment(commentAuthor, commentText) {
         return {
             commentAuthor,
-            commentText,
+            commentText: commentText.replace(/<[^>]+>/g, ''),
             commentDate: new Date().toLocaleDateString() + ' ' + new Date().toLocaleTimeString(),
             id: this.newId++
         }
     };
 
     addComment = (commentAuthor, commentText) => {
+        if (commentAuthor.trim().length === 0) {
+            commentAuthor = this.defaultCommentAuthor;
+        }
+       /* if (commentText.trim().length === 0) {
+            document.querySelector('.comment-textarea').classList.add('empty');
+            return;
+        }*/
         const newItem = this.createComment(commentAuthor, commentText);
         this.setState(({commentsData}) => {
-
             const newArr = [
                 ...commentsData,
                 newItem
             ];
             this.saveToLocalStorage(newArr);
-
             return {
                 commentsData: newArr
             }
@@ -71,7 +77,6 @@ export default class App extends Component {
     deleteComment = (id) => {
         this.setState(({commentsData}) => {
             const idx = commentsData.findIndex((el) => el.id === id);
-
             const newArray = [
                 ...commentsData.slice(0, idx),
                 ...commentsData.slice(idx + 1)

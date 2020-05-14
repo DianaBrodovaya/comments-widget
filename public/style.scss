@@ -1,6 +1,7 @@
 $main-background: #dce2e8;
 $button-background: #4a76a8;
 $comment-background: #fff;
+$warning-color: #ff734c;
 
 * {
   box-sizing: border-box;
@@ -68,6 +69,11 @@ textarea {
   float: right
 }
 
+.add-comment[disabled] {
+  opacity: 0.3;
+  cursor: not-allowed;
+}
+
 .comment-wrapper {
   position: relative
 }
@@ -81,4 +87,8 @@ textarea {
   border: none;
   background: url("images/cross.svg") center center no-repeat;
   cursor: pointer
+}
+
+.comment-textarea.empty {
+  border: 1px solid $warning-color
 }

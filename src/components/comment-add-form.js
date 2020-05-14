@@ -3,7 +3,7 @@ import React, {Component} from 'react';
 export default class CommentAddForm extends Component {
     state = {
         commentAuthor: '',
-        commentText: ''
+        commentText: '',
     };
 
     addCommentAuthor = (e) => {
@@ -45,7 +45,7 @@ export default class CommentAddForm extends Component {
                         onChange={this.addCommentText}
                         value={this.state.commentText}
                     />
-                    <button className="add-comment">Добавить</button>
+                    <button className="add-comment" disabled={this.state.commentText.length === 0}>Добавить</button>
                 </form>
             </div>
         );
