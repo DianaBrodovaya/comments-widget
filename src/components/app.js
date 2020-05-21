@@ -57,10 +57,6 @@ export default class App extends Component {
         if (commentAuthor.trim().length === 0) {
             commentAuthor = this.defaultCommentAuthor;
         }
-       /* if (commentText.trim().length === 0) {
-            document.querySelector('.comment-textarea').classList.add('empty');
-            return;
-        }*/
         const newItem = this.createComment(commentAuthor, commentText);
         this.setState(({commentsData}) => {
             const newArr = [
